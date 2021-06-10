@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script type="text/javascript">
+        document.addEventListener("mouseleave", function(e) {
+            if (e.clientY < 0) {
+                alert("Antes que te vayas, nos preocupamos por tu seguridad porfavor descarga nuestro pdf sobre seguridad");
+            } else {
+                false
+            }
+        })
+    </script> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/carlsednaoui/ouibounce/master/test/ouibounce.min.css">
+    <style>
+        p {
+            text-align: center;
+        }
+        form-p {
+            margin: 0 auto;
+        }
+        form {
+            margin: 0 auto;
+        }
+        input {
+            width: 50%;
+            display: block;
+            }
+        /* .modal-body {
+            position: absolute;
+        } */
+    </style>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ouibounce/0.0.11/ouibounce.min.js"></script>
+</head>
+<body>
+    <h1>this is a test site</h1>
+            <!-- Ouibounce Modal -->
+            <div id="ouibounce-modal">
+                <div class="underlay"></div>
+                  <div class="modal">
+                      <div class="modal-title">
+                          <h3>¡No te vayas todavia!</h3>
+                      </div>
+
+                      <div class="modal-body">
+                          <p>De todos modos queremos regalarte un checklist util<br><p>
+                            <p>Compartelo con tus compañeros, clientes, y familia.</p>
+                              <form>
+                                  <input type="text" placeholder="escribe tu correo aqui">
+                                  <p id="form-p" class="form-notice">Recibiras noticias y promociones de nosotros</p>
+                                  <input type="submit" value="Descarga el checklist &raquo;">
+                              </form>
+                      </div>
+      
+                      <div class="modal-footer">
+                          <p onclick="document.getElementById('ouibounce-modal').style.display = 'none';">No gracias</p>
+                      </div>
+                  </div>
+              </div>
+      
+              <script>
+                  const _ouibounce = ouibounce(document.getElementById('ouibounce-modal'),{
+                      aggressive: true, //Making this true makes ouibounce not to obey "once per visitor" rule
+                  });
+              </script>
+</body>
+</html>
