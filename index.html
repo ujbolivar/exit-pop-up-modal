@@ -16,14 +16,140 @@
     </script> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/carlsednaoui/ouibounce/master/test/ouibounce.min.css">
     <style>
+        #ouibounce-modal {
+            font-family:'Open Sans',sans-serif;
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            }
+        #ouibounce-modal .underlay {
+            width:100%;
+            height:100%;
+            position:absolute;
+            top:0;
+            left:0;
+            background-color:rgba(0,0,0,.5);
+            cursor:pointer;
+            -webkit-animation:fadein .5s;
+            animation:fadein .5s
+        }
+        #ouibounce-modal .modal{
+            width:600px;
+            height:400px;
+            background-color:#f0f1f2;
+            z-index:1;
+            position:absolute;
+            margin: 0 auto;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            border-radius:4px;
+            -webkit-animation:popin .3s;
+            animation:popin .3s
+        }
+                    #ouibounce-modal .modal-title {
+                        font-size:18px;
+                        background-color:#252525;
+                        color:#fff;
+                        padding:10px;
+                        margin:0;
+                        border-radius:4px 4px 0 0;
+                        text-align:center
+                    }
+                    #ouibounce-modal h3 {
+                        color:#fff;
+                        font-size:1em;
+                        margin:.2em;
+                        text-transform:uppercase;
+                        font-weight:500
+                    }
+                    #ouibounce-modal .modal-body {
+                        padding:20px 35px;
+                        font-size:.9em
+                    }
+                    #ouibounce-modal p {
+                        color:#344a5f
+                    }
+                    #ouibounce-modal form {
+                        text-align:center;
+                        margin-top:35px
+                        }
+                    #ouibounce-modal form input[type=text] {
+                        padding:12px;
+                        font-size:1.2em;
+                        width:300px;
+                        border-radius:4px;
+                        border:1px solid #ccc;
+                        -webkit-font-smoothing:antialiased;
+                        margin: 0 auto;
+                        margin-bottom: 20px;
+                        text-align: center;
+                    }
+                    #ouibounce-modal form input[type=submit] {
+                        text-transform:uppercase;
+                        font-weight:700;
+                        padding:12px;
+                        font-size:1.1em;
+                        border-radius:4px;
+                        color:#fff;
+                        background-color:rgb(80, 201, 248);
+                        border:none;
+                        cursor:pointer;
+                        -webkit-font-smoothing:antialiased;
+                        margin: 0 auto;
+                    }
+                    #ouibounce-modal form p {
+                        text-align:center;
+                        margin-left:5px;
+                        opacity:.8;
+                        margin-top:1px;
+                        margin-bottom: 30px;
+                        padding-top:1px;
+                        font-size:.9em
+                    }
+                    #ouibounce-modal .modal-footer {
+                        position:absolute;
+                        bottom:20px;
+                        text-align:center;
+                        width:100%
+                    }
+                    #ouibounce-modal .modal-footer p {
+                        text-transform:capitalize;
+                        cursor:pointer;
+                        display:inline;
+                        border-bottom:1px solid #344a5f
+                    }
+                    @-webkit-keyframes fadein {
+                        0%{opacity:0}100%{opacity:1}
+                    }
+                    @-ms-keyframes fadein{
+                        0%{opacity:0}100%{opacity:1}
+                    }
+                    @keyframes fadein{
+                        0%{opacity:0}100%{opacity:1}
+                    }
+                    @-webkit-keyframes popin{
+                        0%{-webkit-transform:scale(0);transform:scale(0);opacity:0}85%{-webkit-transform:scale(1.05);transform:scale(1.05);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}
+                    }
+                    @-ms-keyframes popin{
+                        0%{-ms-transform:scale(0);transform:scale(0);opacity:0}85%{-ms-transform:scale(1.05);transform:scale(1.05);opacity:1}100%{-ms-transform:scale(1);transform:scale(1);opacity:1}
+                    }
+                    @keyframes popin{
+                        0%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);opacity:0}85%{-webkit-transform:scale(1.05);-ms-transform:scale(1.05);transform:scale(1.05);opacity:1}100%{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);opacity:1}
+                    }
         p {
             text-align: center;
+            margin: 10px 0 30px 0;
         }
         form-p {
             margin: 0 auto;
         }
         form {
-            margin: 0 auto;
+            padding: 0 auto;
         }
         input {
             width: 50%;
@@ -33,7 +159,10 @@
             position: absolute;
         } */
     </style>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ouibounce/0.0.11/ouibounce.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ouibounce/0.0.11/ouibounce.min.js"></script> -->
+    <script>
+        !function(e,n){"function"==typeof define&&define.amd?define(n):"object"==typeof exports?module.exports=n(require,exports,module):e.ouibounce=n()}(this,function(){return function(e,n){function o(e,n){return"undefined"==typeof e?n:e}function t(e){var n=24*e*60*60*1e3,o=new Date;return o.setTime(o.getTime()+n),"; expires="+o.toUTCString()}function i(){L.addEventListener("mouseleave",u),L.addEventListener("mouseenter",r),L.addEventListener("keydown",c)}function u(e){e.clientY>v||d(T,"true")&&!l||(w=setTimeout(m,p))}function r(){w&&(clearTimeout(w),w=null)}function c(e){g||d(T,"true")&&!l||e.metaKey&&76===e.keyCode&&(g=!0,w=setTimeout(m,p))}function d(e,n){return a()[e]===n}function a(){for(var e=document.cookie.split("; "),n={},o=e.length-1;o>=0;o--){var t=e[o].split("=");n[t[0]]=t[1]}return n}function m(){f(),y()}function f(){e&&(e.style.display="block"),s()}function s(e){var e=e||{};"undefined"!=typeof e.cookieExpire&&(E=t(e.cookieExpire)),e.sitewide===!0&&(b=";path=/"),"undefined"!=typeof e.cookieDomain&&(x=";domain="+e.cookieDomain),"undefined"!=typeof e.cookieName&&(T=e.cookieName),document.cookie=T+"=true"+E+x+b,L.removeEventListener("mouseleave",u),L.removeEventListener("mouseenter",r),L.removeEventListener("keydown",c)}var n=n||{},l=n.aggressive||!1,v=o(n.sensitivity,20),k=o(n.timer,1e3),p=o(n.delay,0),y=n.callback||function(){},E=t(n.cookieExpire)||"",x=n.cookieDomain?";domain="+n.cookieDomain:"",T=n.cookieName?n.cookieName:"viewedOuibounceModal",b=n.sitewide===!0?";path=/":"",w=null,L=document.documentElement;setTimeout(i,k);var g=!1;return{fire:f,disable:s}}});
+    </script>
 </head>
 <body>
     <h1>this is a test site</h1>
@@ -46,12 +175,12 @@
                       </div>
 
                       <div class="modal-body">
-                          <p>De todos modos queremos regalarte un checklist util<br><p>
+                          <p>De todos modos queremos regalarte un checklist util.<p>
                             <p>Compartelo con tus compañeros, clientes, y familia.</p>
-                              <form>
+                              <form action="https://drive.google.com/file/d/1D6Fx7UNGA6RF-3as1RZAjxC_Te_8CRHH/view?usp=sharing" method="GET" target="_blank">
                                   <input type="text" placeholder="escribe tu correo aqui">
-                                  <p id="form-p" class="form-notice">Recibiras noticias y promociones de nosotros</p>
-                                  <input type="submit" value="Descarga el checklist &raquo;">
+                                  <p id="form-p" class="form-notice"><i>para recibir mas tips, noticias y promociones</i></p>
+                                  <input type="submit" value="Descarga el checklist">
                               </form>
                       </div>
       
